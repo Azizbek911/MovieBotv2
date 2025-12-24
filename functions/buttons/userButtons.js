@@ -9,7 +9,7 @@ export const UserMainButton = [
 ]
 
 export const search_movie_buttons = [
-    [Markup.button.url("📺 Barcha filmlar", "https://t.me/multik_uzb_kanal", true)],
+    [Markup.button.url("📺 Barcha filmlar", "https://t.me/kinohazil", true)],
     [{ text: "🔎 Nom orqali", switch_inline_query_current_chat: " " }, Markup.button.callback("📁 Filter", "filter")],
     [Markup.button.callback("📦 Film buyurtma qilish", "order_movie")],
     [Markup.button.callback("🎲 Tasodifiy Film", "random_movie")],
