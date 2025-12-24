@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf";
-import { errorConsole } from "../errorConsole"
-import fee from "../../models/fee.module";
-import { updateLastMessage } from "../updateLastMessage";
-import { clearSession } from "../clearSession";
+import { errorConsole } from "../errorConsole.ts"
+import fee from "../../models/fee.module.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
+import { clearSession } from "../clearSession.ts";
 
 
 export const setFee = async (ctx: Context) => {

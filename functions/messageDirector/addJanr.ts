@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf"
-import { errorConsole } from "../errorConsole"
+import { errorConsole } from "../errorConsole.ts"
 import { Message } from "telegraf/types";
 import janr from "../../models/janr.module.js";
-import { updateLastMessage } from "../updateLastMessage.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 export const addJanr = async (ctx: Context, message: string, newMessage: Message) => {

@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf"
-import { errorConsole } from "../errorConsole"
+import { errorConsole } from "../errorConsole.ts"
 import { Message } from "telegraf/types"
-import zayafka from "../../models/zayafka.module";
-import { updateLastMessage } from "../updateLastMessage";
+import zayafka from "../../models/zayafka.module.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 

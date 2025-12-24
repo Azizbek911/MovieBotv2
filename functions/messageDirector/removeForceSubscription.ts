@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf"
-import { errorConsole } from "../errorConsole"
-import forceSubscription from "../../models/forceSubscriptions.module";
+import { errorConsole } from "../errorConsole.ts"
+import forceSubscription from "../../models/forceSubscriptions.module.js";
 import { Message } from "telegraf/types";
-import { updateLastMessage } from "../updateLastMessage";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 

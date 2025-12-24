@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf";
-import { errorConsole } from "../errorConsole";
-import { updateLastMessage } from "../updateLastMessage";
+import { errorConsole } from "../errorConsole.ts";
+import { updateLastMessage } from "../updateLastMessage.ts";
 import { Message } from "telegraf/types";
-import extraLink from "../../models/extraLink.module";
+import extraLink from "../../models/extraLink.module.js";
 
 
 

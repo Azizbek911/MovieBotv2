@@ -1,4 +1,4 @@
-import User from "../models/user.module";
+import User from "../models/user.module.js";
 
 // Obunani aktivlashtirish funksiyasi
 export const activateSubscription = async (userId: number, months: number) => {

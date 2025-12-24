@@ -1,9 +1,9 @@
 import { Context, Markup } from "telegraf";
-import { errorConsole } from "../errorConsole";
+import { errorConsole } from "../errorConsole.ts";
 import { Message } from "telegraf/types";
-import bot from "../..";
-import zayafka from "../../models/zayafka.module";
-import { updateLastMessage } from "../updateLastMessage";
+import bot from "../../index.js";
+import zayafka from "../../models/zayafka.module.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 export const addZayafka = async (ctx: Context) => {

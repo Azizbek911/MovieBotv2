@@ -1,9 +1,9 @@
 import { Markup } from "telegraf";
 import { InlineKeyboardButton } from "telegraf/types";
-import janr from "../../models/janr.module";
-import Year from "../../models/years.module";
-import country from "../../models/country.module";
-import language from "../../models/language.module";
+import janr from "../../models/janr.module.js";
+import Year from "../../models/years.module.js";
+import country from "../../models/country.module.js";
+import language from "../../models/language.module.js";
 
 export const getJanrButtons = async (): Promise<
     InlineKeyboardButton.CallbackButton[][]

@@ -1,5 +1,5 @@
 import { Markup } from "telegraf";
-import fee from "../../models/fee.module";
+import fee from "../../models/fee.module.js";
 
 export const UserMainButton = [
     [Markup.button.callback("🔎 Film qidirish", "search_movie")],

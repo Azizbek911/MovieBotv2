@@ -2,8 +2,8 @@ import { Context, Markup } from "telegraf";
 import bot from "../../index.js";
 import User from "../../models/user.module.js";
 import type { Message } from "telegraf/types"
-import { updateLastMessage } from "../updateLastMessage.js";
-import { errorConsole } from "../errorConsole.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
+import { errorConsole } from "../errorConsole.ts";
 
 export const removeAdmin = async (ctx: Context, message: string, newMessage: Message) => {
     try {

@@ -1,9 +1,9 @@
 import { Context } from "telegraf";
-import { errorConsole } from "./errorConsole";
+import { errorConsole } from "./errorConsole.ts";
 import { InlineKeyboardButton } from "telegraf/types";
-import User from "../models/user.module";
-import bot from "../index";
-import { clearSession } from "./clearSession";
+import User from "../models/user.module.js";
+import bot from "../index.js";
+import { clearSession } from "./clearSession.ts";
 
 function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));

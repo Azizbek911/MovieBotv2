@@ -1,10 +1,10 @@
 import { Context, Markup } from "telegraf"
-import { errorConsole } from "../errorConsole"
+import { errorConsole } from "../errorConsole.ts"
 import { Message } from "telegraf/types";
-import { updateLastMessage } from "../updateLastMessage";
-import User from "../../models/user.module";
-import { activateSubscription } from "../subscription";
-import bot from "../../index";
+import { updateLastMessage } from "../updateLastMessage.ts";
+import User from "../../models/user.module.js";
+import { activateSubscription } from "../subscription.ts";
+import bot from "../../index.js";
 
 
 export const activateSubscribe = async (ctx: Context) => {

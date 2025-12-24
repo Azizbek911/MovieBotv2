@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf";
-import { errorConsole } from "../errorConsole";
-import janr from "../../models/janr.module";
+import { errorConsole } from "../errorConsole.ts";
+import janr from "../../models/janr.module.js";
 import { Message } from "telegraf/types";
-import { updateLastMessage } from "../updateLastMessage";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 export const removeJanr = async (ctx: Context, message: string, newMessage: Message) => {

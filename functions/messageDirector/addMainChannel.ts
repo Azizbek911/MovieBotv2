@@ -1,11 +1,11 @@
 import { Context, Markup } from "telegraf";
 import { Message } from "telegraf/types";
-import { errorConsole } from "../errorConsole";
-import mainChannel from "../../models/main.channel.module";
-import { isBotAdmin } from "../IsBotAdmin";
-import bot from "../../index";
-import { admin } from "../buttons/userButtons";
-import { updateLastMessage } from "../updateLastMessage";
+import { errorConsole } from "../errorConsole.ts";
+import mainChannel from "../../models/main.channel.module.js";
+import { isBotAdmin } from "../IsBotAdmin.ts";
+import bot from "../../index.js";
+import { admin } from "../buttons/userButtons.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 export const addMainChannel = async (ctx: Context, message: string, newMessage: Message) => {

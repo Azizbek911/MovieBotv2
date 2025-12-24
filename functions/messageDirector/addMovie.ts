@@ -1,9 +1,9 @@
 import { Context, Markup } from "telegraf"
-import { errorConsole } from "../errorConsole"
-import { isAdmin } from "../isAdmin";
+import { errorConsole } from "../errorConsole.ts"
+import { isAdmin } from "../isAdmin.ts";
 import { Message } from "telegraf/types";
-import { getJanrButtons } from "../buttons/buttons";
-import { updateLastMessage } from "../updateLastMessage";
+import { getJanrButtons } from "../buttons/buttons.ts";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 export const addMovies = async (ctx: Context, newMessage: Message) => {

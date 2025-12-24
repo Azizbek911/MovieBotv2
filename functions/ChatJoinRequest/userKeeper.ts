@@ -1,6 +1,6 @@
 import { Context } from "telegraf";
-import { errorConsole } from "../errorConsole";
-import zayafka from "../../models/zayafka.module";
+import { errorConsole } from "../errorConsole.ts";
+import zayafka from "../../models/zayafka.module.js";
 
 
 

@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf";
 import { Message } from "telegraf/types";
-import { errorConsole } from "../errorConsole";
-import language from "../../models/language.module";
-import { updateLastMessage } from "../updateLastMessage";
+import { errorConsole } from "../errorConsole.ts";
+import language from "../../models/language.module.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 

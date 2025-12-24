@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf";
-import { errorConsole } from "../errorConsole";
-import country from "../../models/country.module";
+import { errorConsole } from "../errorConsole.ts";
+import country from "../../models/country.module.js";
 import { Message } from "telegraf/types";
-import { updateLastMessage } from "../updateLastMessage";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 export const addCountry = async (ctx: Context, message: string, newMessage: Message) => {

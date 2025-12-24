@@ -1,5 +1,5 @@
 import { Context, Markup } from "telegraf"
-import { errorConsole } from "../errorConsole"
+import { errorConsole } from "../errorConsole.ts"
 import { Message } from "telegraf/types";
 
 

@@ -1,7 +1,7 @@
-import bot from "../index";
-import { errorConsole } from "../functions/errorConsole";
-import mainChannel from "../models/main.channel.module";
-import movie from "../models/movie.module";
+import bot from "../index.js";
+import { errorConsole } from "../functions/errorConsole.ts";
+import mainChannel from "../models/main.channel.module.js";
+import movie from "../models/movie.module.js";
 import { Markup } from "telegraf";
 
 // Rate limitlarni boshqarish uchun konstantalar

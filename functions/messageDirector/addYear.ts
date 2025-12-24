@@ -1,8 +1,8 @@
 import { Context, Markup } from "telegraf";
-import Year from "../../models/years.module";
+import Year from "../../models/years.module.js";
 import { Message } from "telegraf/types";
-import { errorConsole } from "../errorConsole";
-import { updateLastMessage } from "../updateLastMessage";
+import { errorConsole } from "../errorConsole.ts";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 export const addYear = async (message:string, newMessage:Message, ctx:Context) => {
     try {

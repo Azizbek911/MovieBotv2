@@ -1,8 +1,8 @@
 import { Context } from "telegraf";
-import forceSubscription from "../models/forceSubscriptions.module";
-import zayafka from "../models/zayafka.module";
-import bot from "../index";
-import { removeAt } from "./remover";
+import forceSubscription from "../models/forceSubscriptions.module.js";
+import zayafka from "../models/zayafka.module.js";
+import bot from "../index.js";
+import { removeAt } from "./remover.ts";
 
 
 

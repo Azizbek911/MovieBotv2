@@ -1,10 +1,10 @@
 import { Context, Markup } from "telegraf";
-import { errorConsole } from "../errorConsole";
-import { isBotAdmin } from "../IsBotAdmin";
-import bot from "../../index";
+import { errorConsole } from "../errorConsole.ts";
+import { isBotAdmin } from "../IsBotAdmin.ts";
+import bot from "../../index.js";
 import { Message } from "telegraf/types";
-import forceSubscription from "../../models/forceSubscriptions.module";
-import { updateLastMessage } from "../updateLastMessage";
+import forceSubscription from "../../models/forceSubscriptions.module.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 
 export const addForceSubscription = async (ctx: Context) => {

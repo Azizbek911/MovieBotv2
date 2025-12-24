@@ -1,4 +1,4 @@
-import User from "../models/user.module";
+import User from "../models/user.module.js";
 import type { Message } from "telegraf/types"
 
 

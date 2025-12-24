@@ -1,8 +1,8 @@
 import { Message } from "telegraf/types";
-import { errorConsole } from "../errorConsole";
+import { errorConsole } from "../errorConsole.ts";
 import { Markup, type Context } from "telegraf"
-import Year from "../../models/years.module";
-import { updateLastMessage } from "../updateLastMessage";
+import Year from "../../models/years.module.js";
+import { updateLastMessage } from "../updateLastMessage.ts";
 
 export const removeYear = async (ctx:Context, message:string, newMessage:Message) => {
     try {

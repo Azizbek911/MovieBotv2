@@ -1,6 +1,6 @@
 import { Context, Markup } from "telegraf";
 import User from "../models/user.module.js";
-import { isAdmin } from "./isAdmin";
+import { isAdmin } from "./isAdmin.ts";
 import { admin, UserMainButton } from "./buttons/userButtons.js";
 
 export const errorConsole = async (err: any, message: string, ctx: Context) => {
