@@ -1,0 +1,32 @@
+{
+  "name": "moviebot",
+  "version": "1.0.0",
+  "description": "This bot is made by BlackHole team, all rights belongs to us. This bot only for sell.",
+  "keywords": [
+    "movie",
+    "telegram",
+    "film",
+    "cartoon"
+  ],
+  "license": "MIT",
+  "author": "Azizbek Jumaboyev (Founder of BlackHole)",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mongoose": "^9.0.0",
+    "nodemon": "^3.1.11",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@telegraf/types": "^9.2.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0"
+  }
+}

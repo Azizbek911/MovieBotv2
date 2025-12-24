@@ -1,0 +1,49 @@
+Barcha filimlar: Main channel;
+Nom bilan qidirish;
+Filter:
+    -Janr (Admin tomonidan kiritiladi)
+    -Til (Admin tomonidan kiritiladi)
+    -Davlat (Admin tomonidan kiritiladi)
+    -Yil (Admin tomonidan kiritiladi)
+Filim buyurtma qilish (VIP obuna uchun);
+Tasodifiy film tomosha qilish (VIP);
+To'lovlar: 
+    - Click
+    - Karta Raqam Orqali
+    - Admin bilan bog'lanish
+Inlinemode: 
+    - Top filimlar
+    - Saqlangan kinolar
+Yordam:
+    - Adminga xabar
+Instagram ulab quyish;
+
+-- Majburiy obuna:
+- Kanal
+- Guruh
+- Extra Link (Bot, Instagram, Youtube and etc.)
+
+Kino joylash:
+1. Kino nomi
+2. Qisimli kino/1ta kino
+3. Kino janiri ++
+4. Davlat ++
+5. Til ++
+6. Yil +
+7. isPremium
+8. Video
+9. Ko'rganlar
+10. Like
+11. Dislike
+12. Instagram link 
+13. izoh
+
+
+VIP yoki VIP emasligini tanlashni egaga topshirish:
+    - Film buyurtma qilish
+    - Tasodifiy film
+    - Janr
+    - davlat
+    - Yil
+    - Til
+    

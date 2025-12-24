@@ -1,0 +1,132 @@
+Xulosa:
+- MovieBot (Telegram) uchun reja: barcha filmlar asosiy kanalga joylanadi, nom bilan qidirish, admin tomonidan boshqariladigan filtrlash (janr, til, davlat, yil), VIP funksiyalar (buyurtma, tasodifiy film), to'lovlar, inline rejim (top/saqlangan), admin yordam va Instagram havolasi.
+
+Asosiy funksiyalar (prioritet bo'yicha):
+- Nom bo'yicha qidirish (qisman yoki noaniq qidirish)
+- Film tafsilotlarini ko'rsatish: nom, poster, qisqacha mazmun, reyting, yil, til, davlat, janrlar, tomosha/affiliate havolalar
+- Janr / til / davlat / yil bo'yicha filtr (admin tomonidan boshqariladigan ro'yxatlar)
+- Admin tomonidan film qo'shish/tahrirlash/o'chirish (bot chat orqali yoki veb-admin)
+- Ro'yxatlar va qidiruv natijalari uchun sahifalash (pagination)
+- Foydalanuvchi ko'rish ro'yxati / saqlangan filmlar
+
+VIP funksiyalar:
+- Tasodifiy film tanlovchisi (faqat VIP uchun)
+- VIP foydalanuvchilar uchun film buyurtma qilish (admin tomonidan qayta ishlanadi)
+- VIP-ga xos kontent yoki alohida havolalar
+
+Ma'lumotlar modeli (taklif):
+- Film (Movie):
+  - id (uuid)
+  - title (sarlavha)
+  - description (ta'rif)
+  - genres[] (janrlar)
+  - country (davlat)
+  - language (til)
+  - year (yil)
+  - poster_url
+  - trailer_url
+  - streaming_links[] (label + url)
+  - is_premium (bool)
+  - added_by (admin id)
+  - created_at
+
+- Foydalanuvchi (User):
+  - id (uuid)
+  - telegram_id (int)
+  - username
+  - is_vip (bool)
+  - favorites[] (film idlari)
+  - created_at
+
+- Admin sozlamalari / lug'at jadvallari:
+  - genres (janrlar) jadvallari
+  - languages (tillar) jadvallari
+  - countries (davlatlar) jadvallari
+  - years (yil) yoki filmga numeric maydon
+
+Qidiruv va foydalanuvchi tajribasi (UX):
+- Noaniq qidiruvni amalga oshiring (trigram yoki Levenshtein) yoki kichik to'liq matnli indeks (SQLite FTS yoki Postgres full-text) ishlating.
+- Inline tugmalar bilan amallar: Saqlash, Ulashish, Treylerni ko'rish, Ko'rilgan deb belgilash.
+- Mahalliylashtirish: Uzbek, Rus va Ingliz tillari uchun matnlarni i18n xaritasida saqlash.
+
+Kontent manbalari va huquqiy jihatlar:
+- Metama'lumotlar va posterlar uchun TMDb yoki OMDb API laridan foydalaning. Javoblarni keshlang va faqat metama'lumotlar va qonuniy havolalarni saqlang.
+- Piratlikni rag'batlantirmang — videofayllarni joylamang yoki to'g'ridan-to'g'ri xizmat ko'rsatmaylik. Faqat qonuniy/affiliate havolalarni bering.
+
+To'lovlar va VIP boshqaruvi:
+- Mahalliy to'lov provayderi `Click` va/yoki karta to'lovlari (Stripe, Paycom yoki mahalliy bank API lari) bilan integratsiya.
+- To'lov tasdiqlarini qabul qilish uchun webhook endpoint yarating va `User.is_vip` ni yangilang.
+- To'lov yozuvlarini minimal darajada saqlang: payment_id, user_id, provider, amount, status, created_at.
+
+Admin vositalari:
+- Bot chatida faqat adminlar uchun buyruqlar (konfiguratsiyalangan admin Telegram ID lari bilan):
+  - Janr, til, davlatlarni qo'shish/olib tashlash
+  - Film qo'shish (yo'riqnoma: sarlavha -> yil -> janr -> poster -> havolalar -> is_premium)
+  - Filmlarni tahrirlash yoki o'chirish
+  - VIP foydalanuvchilar va to'lovlarni ro'yxatini ko'rish
+- Qo'shimcha: katta hajmli yuklash va CSV import uchun oddiy veb-admin (Flask yoki FastAPI + oddiy auth).
+
+Arxitektura va texnologiya tanlovi (tavsiya):
+- Til: Python (tavsiya) yoki Node.js
+  - Python kutubxonalar: `python-telegram-bot` v20+ yoki `aiogram`
+  - Node.js kutubxonasi: `telegraf`
+- Ma'lumotlar bazasi: prototip uchun SQLite, production uchun PostgreSQL
+- Kesh / rate-limit: Redis
+- Fayl saqlash: S3-kompatibil (DigitalOcean Spaces) yoki lokal fayl xotirasi (posterlar uchun)
+- Joylash: Docker konteynerida VPS / Render / Railway ga joylash. Productionda webhook, local/devda long-polling ishlatish mumkin.
+
+Xavfsizlik va operatsiyalar:
+- Tokenlar va DB ma'lumotlari uchun environment variables ishlating.
+- Adminlar ro'yxati (whitelist): faqat ruxsat etilgan Telegram ID lar admin buyruqlaridan foydalanishi mumkin.
+- Foydalanuvchi amallari va inline so'rovlar uchun rate-limit qo'ying.
+- Loglash va DB zaxira nusxalarini tashkil qiling.
+
+Qo'shimcha imkoniyatlar va kelajakdagi kengaytmalar:
+- Shaxsiy tavsiyalar (collaborative filtering yoki content-based)
+- Kanalga trendlar va rejalashtirilgan postlar
+- Watch party (guruh bilan birga tomosha) funksiyasi
+- Affiliate havolalar / where-to-watch integratsiyasi orqali daromad
+- Analitika dashboard (eng ko'p qidirilgan, ko'p saqlangan filmlar, to'lovlar statistikasi)
+
+Ishlab chiqish yo'l xaritasi (MVP → Production):
+- MVP (1–2 hafta):
+  - Bot skeletoni va autentifikatsiya
+  - Admin orqali film qo'shish (chat bosqichlari)
+  - Nom bo'yicha qidiruv va film tafsilotlarini + poster ko'rsatish
+  - SQLite saqlash va oddiy i18n
+
+- Bosqich 2 (1 hafta):
+  - To'lov integratsiyasi (Click yoki karta provayderi)
+  - VIP bayrog'ini ikkilashtirish va VIP-ga xos buyruqlar
+  - Foydalanuvchi uchun saqlash/ko'rish ro'yxati
+
+- Bosqich 3 (1 hafta):
+  - Inline rejim (top filmlar, saqlanganlar)
+  - Kanalga postlar va rejalashtirilgan xabarlar
+  - DB ni Postgres ga ko'chirish, Redis keshini qo'shish
+
+- Qattiqlash va joylash (1–2 hafta):
+  - `Dockerfile` va joylash skriptlari
+  - Testlar va CI
+  - Monitoring, backup va loglash
+
+Ishlab chiquvchi tavsiyalari:
+- Boshlang'ich uchun `python-telegram-bot` dan foydalanishni tavsiya qilaman.
+- Metama'lumotlar uchun TMDb API ni ishlating (posterlar va treylerlar boy). API kalitini oling va javoblarni keshlang.
+- Matnlarni bitta i18n faylida saqlang, shunda ko'p tillarni qo'llab-quvvatlash oson bo'ladi.
+
+Keyingi amallar (siz tanlang):
+- Minimal Python botni skaffold qilish (SQLite) — admin film qo'shish, qidiruv, tafsilotlarni ko'rsatish, saqlash ro'yxati.
+- Movie/User jadvallari uchun SQL sxemasi/migratsiyalarini berish.
+- `Click` uchun to'lov webhook skeletini qo'shish va VIP ni belgilash namunasi.
+- `Dockerfile` va `README.md` bilan joylash bo'yicha ko'rsatmalar yaratish.
+
+Savollar:
+- Qaysi til/ramkani afzal ko'rasiz (Python yoki Node)?
+- TMDb/OMDb uchun API kalitingiz yoki boshqa metama'lumot manbangiz bormi?
+- To'lov provayderi sifatida `Click`ni ishlatasizmi (va dokumentatsiya/kalitlaringiz bormi)?
+- Bot hech qachon videolarni to'g'ridan-to'gri joylaydimi yoki faqat metama'lumot va qonuniy havolalar bilan cheklanadi?
+
+Eslatma / Kontakt:
+- Adminlar va to'lovlar bilan bog'liq shaxslar platforma va qonunlarga mos ishlashi kerak.
+- Xohlasangiz, hozir MVP ni skaffold qilib bera olaman — qaysi funksiyalarni kiritish kerakligini ayting.
