@@ -153,7 +153,7 @@ export const callbackQueryHandler = async (ctx) => {
         } else if (callbackData === "card_payment") {
             await ctx.telegram.deleteMessage(ctx.chat.id, message_id);
             const fee_cost = await fee.findOne({ name: "fee" });
-            newMessage = await ctx.reply(`💳 Karta raqam orqali to'lov qilish uchun quyidagi ko'rsatmalarga amal qiling:\n\n1. Quyidagi karta raqamiga to'lovni amalga oshiring: \n\nKarta raqam: 5614 6812 9056 4073 (Azizbek Jumaboyev)\n\n2. To'lov summasi: ${fee_cost.fee} UZS\n\n3. To'lovni amalga oshirgandan so'ng, to'lov haqida skrinshot yoki tasdiqlovchi ma'lumotni adminga yuboring: 👨‍💻 @${owner}\n\n4. To'lov tasdiqlangach, obunangiz faollashtiriladi.`, Markup.inlineKeyboard([
+            newMessage = await ctx.reply(`💳 Karta raqam orqali to'lov qilish uchun quyidagi ko'rsatmalarga amal qiling:\n\n1. Quyidagi karta raqamiga to'lovni amalga oshiring: \n\nKarta raqam: 9860 3501 4756 3950\n\n2. To'lov summasi: ${fee_cost.fee} UZS\n\n3. To'lovni amalga oshirgandan so'ng, to'lov haqida skrinshot yoki tasdiqlovchi ma'lumotni adminga yuboring: 👨‍💻 @${owner}\n\n4. To'lov tasdiqlangach, obunangiz faollashtiriladi.`, Markup.inlineKeyboard([
                 [Markup.button.url("👨‍💻 Adminga Murojaat", `https://t.me/${owner}`)],
                 [Markup.button.callback("🏘 Bosh Menyu", "main_menu")]
             ]))
