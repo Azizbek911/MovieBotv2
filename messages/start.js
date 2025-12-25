@@ -1,5 +1,5 @@
 import { admin, UserMainButton } from "../functions/buttons/userButtons.js";
-import { clearSession } from "../functions/clearSession.ts";
+import { clearSession } from "../functions/clearSession.js";
 import User from "../models/user.module.js";
 import { Input } from "telegraf";
 

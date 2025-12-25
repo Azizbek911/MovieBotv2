@@ -1,5 +1,5 @@
 import bot from "../index.js";
-import { errorConsole } from "../functions/errorConsole.ts";
+import { errorConsole } from "../functions/errorConsole.js";
 import mainChannel from "../models/main.channel.module.js";
 import movie from "../models/movie.module.js";
 import { Markup } from "telegraf";
