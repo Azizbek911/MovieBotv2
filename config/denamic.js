@@ -1,5 +1,5 @@
 
 
 
-export const owner = "jumaboyev_azizbek";
-export const main_channel = "https://t.me/movietime_bh"
+export const owner = "arslon0202";
+export const main_channel = "https://t.me/kinohazil"
