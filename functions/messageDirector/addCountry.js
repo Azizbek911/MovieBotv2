@@ -1,0 +1,26 @@
+import { Markup } from "telegraf";
+import { errorConsole } from "../errorConsole.js";
+import country from "../../models/country.module.js";
+import { updateLastMessage } from "../updateLastMessage.js";
+
+
+export const addCountry = async (ctx, message, newMessage) => {
+    try {
+        if (!ctx || !ctx.from) return ctx.reply("🤕 Kechirasiz xatolik mavjud\n\n♻️ Iltimos botni qayta ishga tushiring /start")
+        const isEmpty = await country.findOne({ country: message });
+        if (isEmpty) {
+            newMessage = await ctx.reply("Kechirasiz, bu davlat oldin ham kritilgan: ", Markup.inlineKeyboard([
+                [Markup.button.callback("🏠 Bosh Menu", "admin_main")]
+            ]))
+        } else {
+            await country.create({ country: message });
+            newMessage = await ctx.reply("Davlat muvofiqiyatli kiritildi: ", Markup.inlineKeyboard([
+                [Markup.button.callback("🏠 Bosh Menu", "admin_main")]
+            ]));
+        }
+
+        await updateLastMessage(newMessage, ctx.from.id)
+    } catch (err) {
+        await errorConsole(err, "Davlat qo'shishda xatolik mavjud:", ctx)
+    }
+}

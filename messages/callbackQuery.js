@@ -1,22 +1,23 @@
 import { Input, Markup } from "telegraf";
 import { admin, filter_buttons, help_buttons, payment_buttons, payment_dates, search_movie_buttons, settings, UserMainButton, vip_no } from "../functions/buttons/userButtons.js";
 import User from "../models/user.module.js";
-import { isAdmin } from "../functions/isAdmin.ts";
-import { changeSetting } from "../functions/changeSetting.ts";
+import { isAdmin } from "../functions/isAdmin.js";
+import { changeSetting } from "../functions/changeSetting.js";
 import botSetting from "../models/settings.module.js";
 import mainChannel from "../models/main.channel.module.js";
 import {
     buttonsArray,
     CountiresButtonsArray,
     getCountiresButtons,
-    getJanrButtons, getLanguageButtons, getYearButtons, LanguageButtonsArray, YearButtonsArray
-} from "../functions/buttons/buttons.ts";
-import { clearSession } from "../functions/clearSession.ts";
+    getLanguageButtons, getYearButtons, LanguageButtonsArray, YearButtonsArray
+} from "../functions/buttons/buttons.js";
+import { clearSession } from "../functions/clearSession.js";
 import movie from "../models/movie.module.js";
 import fee from "../models/fee.module.js";
-import { forceSubscriptions } from "../functions/forceSubscription.ts";
-import { forceSubscriptionChecker } from "../functions/messageDirector/forceSubscriptionChecker.ts";
-import { messageSender } from "../functions/messageSender.ts";
+import { forceSubscriptions } from "../functions/forceSubscription.js";
+import { forceSubscriptionChecker } from "../functions/messageDirector/forceSubscriptionChecker.js";
+import { messageSender } from "../functions/messageSender.js";
+import { owner } from "../config/denamic.js";
 
 
 
@@ -152,8 +153,8 @@ export const callbackQueryHandler = async (ctx) => {
         } else if (callbackData === "card_payment") {
             await ctx.telegram.deleteMessage(ctx.chat.id, message_id);
             const fee_cost = await fee.findOne({ name: "fee" });
-            newMessage = await ctx.reply(`💳 Karta raqam orqali to'lov qilish uchun quyidagi ko'rsatmalarga amal qiling:\n\n1. Quyidagi karta raqamiga to'lovni amalga oshiring: \n\nKarta raqam: 9860 3501 4756 3950\n\n2. To'lov summasi: ${fee_cost.fee} UZS\n\n3. To'lovni amalga oshirgandan so'ng, to'lov haqida skrinshot yoki tasdiqlovchi ma'lumotni adminga yuboring: 👨‍💻 @arslon0202\n\n4. To'lov tasdiqlangach, obunangiz faollashtiriladi.`, Markup.inlineKeyboard([
-                [Markup.button.url("👨‍💻 Adminga Murojaat", "https://t.me/arslon0202")],
+            newMessage = await ctx.reply(`💳 Karta raqam orqali to'lov qilish uchun quyidagi ko'rsatmalarga amal qiling:\n\n1. Quyidagi karta raqamiga to'lovni amalga oshiring: \n\nKarta raqam: 5614 6812 9056 4073 (Azizbek Jumaboyev)\n\n2. To'lov summasi: ${fee_cost.fee} UZS\n\n3. To'lovni amalga oshirgandan so'ng, to'lov haqida skrinshot yoki tasdiqlovchi ma'lumotni adminga yuboring: 👨‍💻 @${owner}\n\n4. To'lov tasdiqlangach, obunangiz faollashtiriladi.`, Markup.inlineKeyboard([
+                [Markup.button.url("👨‍💻 Adminga Murojaat", `https://t.me/${owner}`)],
                 [Markup.button.callback("🏘 Bosh Menyu", "main_menu")]
             ]))
         } else if (callbackData === "help") {
@@ -162,7 +163,7 @@ export const callbackQueryHandler = async (ctx) => {
         } else if (callbackData === "message_to_admin") {
             await ctx.telegram.deleteMessage(ctx.chat.id, message_id);
             newMessage = await ctx.reply("📩 | Ushbu bo'lim faqatgina muammo yuzaga kelganda adminga xabar yuborish uchun mo'ljallangan.\n\n🚫 Iltimos, bu yerga film kodlari va nomlarini yozmang! Film buyurtmalari uchun alohida bo'lim mavjud.", Markup.inlineKeyboard([
-                [Markup.button.url("👨‍💻 Adminga Murojaat", "https://t.me/arslon0202")],
+                [Markup.button.url("👨‍💻 Adminga Murojaat", `https://t.me/${owner}`)],
                 [Markup.button.callback("🏘 Bosh Menyu", "main_menu")]
             ]));
             ctx.session.operation = "message_to_admin";

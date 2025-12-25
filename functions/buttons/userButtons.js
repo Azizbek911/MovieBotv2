@@ -1,5 +1,6 @@
 import { Markup } from "telegraf";
 import fee from "../../models/fee.module.js";
+import { main_channel, owner } from "../../config/denamic.js";
 
 export const UserMainButton = [
     [Markup.button.callback("🔎 Film qidirish", "search_movie")],
@@ -9,7 +10,7 @@ export const UserMainButton = [
 ]
 
 export const search_movie_buttons = [
-    [Markup.button.url("📺 Barcha filmlar", "https://t.me/kinohazil", true)],
+    [Markup.button.url("📺 Barcha filmlar", main_channel, true)],
     [{ text: "🔎 Nom orqali", switch_inline_query_current_chat: " " }, Markup.button.callback("📁 Filter", "filter")],
     [Markup.button.callback("📦 Film buyurtma qilish", "order_movie")],
     [Markup.button.callback("🎲 Tasodifiy Film", "random_movie")],
@@ -25,13 +26,13 @@ export const filter_buttons = [
 export const payment_buttons = [
     [Markup.button.callback("🔵 CLICK [AUTO]", "click")],
     [Markup.button.callback("💳 Karta Raqam Orqali", "card_payment")],
-    [Markup.button.url("👨‍💻 Admin orqali", "https://t.me/yuri_boyka_48")],
+    [Markup.button.url("👨‍💻 Admin orqali", `https://t.me/${owner}`)],
     [Markup.button.callback("🏘 Bosh Menyu", "main_menu")]
 ];
 
 export const help_buttons = [
     [Markup.button.callback("📩 Adminga xabar", "message_to_admin")],
-    [Markup.button.url("👨‍💻 Admin", "https://t.me/yuri_boyka_48")],
+    [Markup.button.url("👨‍💻 Admin", `https://t.me/${owner}`)],
     [Markup.button.callback("📘 Foydalanish qo'llanmasi", "video_manul")],
     [Markup.button.callback("🏘 Bosh Menyu", "main_menu")]
 ];

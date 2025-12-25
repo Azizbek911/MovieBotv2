@@ -1,5 +1,5 @@
-import { userKeeperRequest } from "../functions/ChatJoinRequest/userKeeper.ts"
-import { errorConsole } from "../functions/errorConsole.ts"
+import { userKeeperRequest } from "../functions/ChatJoinRequest/userKeeper.js"
+import { errorConsole } from "../functions/errorConsole.js"
 
 
 

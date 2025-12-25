@@ -1,11 +1,11 @@
-import { errorConsole } from "../functions/errorConsole.ts";
+import { errorConsole } from "../functions/errorConsole.js";
 import { Markup } from "telegraf";
 import last_id from "../models/counter.module.js";
-import { checkLastID, updateLastID } from "../functions/checkLastID.ts";
+import { checkLastID, updateLastID } from "../functions/checkLastID.js";
 import bot from "../index.js";
 import mainChannel from "../models/main.channel.module.js";
 import Movie from "../models/movie.module.js";
-import { clearSession } from "../functions/clearSession.ts";
+import { clearSession } from "../functions/clearSession.js";
 
 export const onVideo = async (ctx) => {
     try {
@@ -94,7 +94,7 @@ export const onVideo = async (ctx) => {
                     [Markup.button.callback("🏠 Admin panel", "admin_main")]
                 ])
             );
-            clearSession()
+            clearSession(ctx)
             await updateLastID();
         }
 

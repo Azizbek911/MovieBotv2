@@ -6,14 +6,14 @@ import { user_handler } from "./messages/user_handler.js";
 import { startMessage } from "./messages/start.js";
 import { callbackQueryHandler } from "./messages/callbackQuery.js";
 import { messageDirector } from "./messages/messageDirector.js";
-import { setTheSetting } from "./functions/setTheSetting.ts";
-import { checkLastID } from "./functions/checkLastID.ts";
-import { buttonsArray, getJanrButtons } from "./functions/buttons/buttons.ts";
+import { setTheSetting } from "./functions/setTheSetting.js";
+import { checkLastID } from "./functions/checkLastID.js";
+import { buttonsArray, getJanrButtons } from "./functions/buttons/buttons.js";
 import {onVideo} from "./messages/onVideo.js";
 import { onText } from "./messages/onText.js";
 import { userKeeper } from "./messages/userKeeper.js";
-import { forceSubscriptionChecker } from "./functions/messageDirector/forceSubscriptionChecker.ts";
-import { forceSubscriptions } from "./functions/forceSubscription.ts";
+import { forceSubscriptionChecker } from "./functions/messageDirector/forceSubscriptionChecker.js";
+import { forceSubscriptions } from "./functions/forceSubscription.js";
 import User from "./models/user.module.js";
 
 
@@ -45,7 +45,7 @@ bot.command("test", async (ctx) => {
     console.warn(await buttonsArray())
 });
 bot.on("inline_query", async (ctx) => {
-    const query = ctx.inlineQuery.query; // foydalanuvchi yozgan matn
+    // const query = ctx.inlineQuery.query; // foydalanuvchi yozgan matn
 
 
     const results = [
